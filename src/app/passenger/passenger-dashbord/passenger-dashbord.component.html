@@ -1,0 +1,7 @@
+<app-passe-count [TotalCount]="PassengerArray.length" [CheckedInCount]="CheckedInCountNum"></app-passe-count>
+<h3>Passenger Name</h3>
+<ul class="list-group" *ngFor="let item of PassengerArray">
+  <li class="list-group-item">{{item.fullname}}</li>
+</ul>
+<app-pass-details (emitPass)="OnRemoveEmit($event)" [passObj]="item" *ngFor="let item of PassengerArray"></app-pass-details>
+<!-- [sendArray]="PassengerArray" -->

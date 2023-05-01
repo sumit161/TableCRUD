@@ -1,0 +1,37 @@
+<!-- <div *ngFor="let item of sendArray"> -->
+<div class="card my-4">
+  <div class="card-body">
+    <input
+      type="text"
+      class="form-control mb-2"
+      [value]="passObj.fullname"
+      [disabled]="!isEditable" #fullname
+    />
+    <p>
+      box <span>{{ passObj.checkedIn }}</span>
+    </p>
+    <p>{{ passObj.fullname }}</p>
+    <p>
+      Check in Date:
+
+      <!-- {{   passObj.checkInDate ? (passObj.checkInDate | date) : "Not Checked in"  }} -->
+      {{ (passObj.checkInDate | date) ?? "Not Checked in" }}
+    </p>
+
+    <p>
+      <!-- {{ passObj.children?.length ? passObj.children?.length : 0 }} -->
+      {{ passObj.children?.length ?? 0 }}
+    </p>
+    <button mat-raised-button color="primary">Primary</button>
+    <button class="btn btn-primary mr-4 p-2" *ngIf="!isEditable" (click)="isEditable=!isEditable" >Edit</button>
+    <button class="btn btn-primary mr-4 p-2" *ngIf="isEditable" (click)="OnClick(fullname.value)">Done</button>
+    <button class="btn btn-primary" (click)="OnRemove()">Remove</button>
+  </div>
+</div>
+<!-- </div> -->
+
+<!--       id: 1,
+      fullname: 'Stephen',
+      checkedIn: true,
+      checkInDate: 1490742000000,
+      children:  null , -->
